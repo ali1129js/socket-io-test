@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2019-12-04T15:34:56+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-12-06T12:04:32+01:00
+ * @Last modified time: 2019-12-06T12:25:12+01:00
  */
 const app = require('express')();
 const http = require('http').createServer(app)
@@ -21,11 +21,19 @@ io.on('connection', socket => {
   console.log('someone has joined at :',timeStamp)
   console.log("We have %s socket in the array",connections.length);
 
-  const payload = {question:"Best Pizza?!",time:timeStamp,id:socket.id}
-
+  const payload = {
+    question:"What is the Best Pizza?!",
+    answers:[
+      {text:"vegetarian  pizza",id:"A"},
+      {text:"Tuna pizza",id:"B"},
+      {text:"THAI CHICKEN Pizza",id:"C"},
+      {text:"MARGHERITA pizza",id:"D"}
+    ],
+    time:timeStamp,
+    id:socket.id
+  }
   socket.emit('poll-1',payload);
   socket.on('client', data => console.log(data))
-  socket.send("sending from a socket on the sever")
 
   //Handle disconnect
   socket.on('disconnect',() => {
