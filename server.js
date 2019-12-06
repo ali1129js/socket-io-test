@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2019-12-04T15:34:56+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-12-06T12:25:12+01:00
+ * @Last modified time: 2019-12-06T13:14:28+01:00
  */
 const app = require('express')();
 const http = require('http').createServer(app)
@@ -24,9 +24,9 @@ io.on('connection', socket => {
   const payload = {
     question:"What is the Best Pizza?!",
     answers:[
-      {text:"vegetarian  pizza",id:"A"},
+      {text:"Vegetarian  pizza",id:"A"},
       {text:"Tuna pizza",id:"B"},
-      {text:"THAI CHICKEN Pizza",id:"C"},
+      {text:"Thai Chicken Pizza",id:"C"},
       {text:"MARGHERITA pizza",id:"D"}
     ],
     time:timeStamp,
