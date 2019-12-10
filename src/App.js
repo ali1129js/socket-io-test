@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2019-12-04T16:11:09+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-12-09T00:29:40+01:00
+ * @Last modified time: 2019-12-09T00:38:31+01:00
  */
 
 import React,{Component} from 'react';
@@ -45,6 +45,7 @@ class App extends Component {
       userAnswer:id
     }))
   }
+  handleChange = e => this.setState({userName:e.target.value})
 render(){
   const timeStamp = new Date().toLocaleTimeString()
   if(this.state.currentPoll.answers.length === 0){
@@ -67,7 +68,7 @@ render(){
         <div className="audience">
           <Audience audience={this.state.audience}/>
         </div>
-        <input type="text" value={this.state.userName} onChange={e => this.setState({userName:e.target.value})} required />
+        <input type="text" value={this.state.userName} onChange={this.handleChange} required />
     </div>
   )
 }
